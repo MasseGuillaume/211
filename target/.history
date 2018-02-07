@@ -1,0 +1,14 @@
+reload
+cls
+server/compile
+server/reStart
+reload
+server/reStart
+server/runtime:managedClasspath
+show server/runtime:managedClasspath
+server/reStart prod
+reload
+server/reStart prod
+server/reStart dev
+server/packageBin
+exit
