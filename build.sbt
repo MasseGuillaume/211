@@ -19,6 +19,7 @@ lazy val server = project
 lazy val client = project
   .settings(base)
   .settings(
+    scalaJSUseMainModuleInitializer := true,
     webpackBundlingMode in fastOptJS := BundlingMode.LibraryOnly(),
     webpackBundlingMode in fullOptJS := BundlingMode.Application,
     libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.3",
