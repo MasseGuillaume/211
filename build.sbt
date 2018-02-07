@@ -11,12 +11,14 @@ lazy val server = project
     WebKeys.packagePrefix in Assets := "public/"
   )
   .enablePlugins(SbtWeb)
+  .enablePlugins(JavaServerAppPackaging)
 
 lazy val client = project
   .settings(base)
   .settings(
     webpackBundlingMode in fastOptJS := BundlingMode.LibraryOnly(),
     webpackBundlingMode in fullOptJS := BundlingMode.Application,
-    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.3"
+    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.3",
+    npmDependencies in Compile += "codemirror" -> "5.28.0"
   )
-  .enablePlugins(ScalaJSPlugin, ScalaJSWeb, WebScalaJSBundlerPlugin)
+  .enablePlugins(ScalaJSPlugin, ScalaJSBundlerPlugin, ScalaJSWeb, WebScalaJSBundlerPlugin)

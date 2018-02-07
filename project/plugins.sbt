@@ -1,3 +1,4 @@
+addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.1.1")
 addSbtPlugin("ch.epfl.scala" % "sbt-web-scalajs-bundler" % "0.10.0")
 addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.20")
 addSbtPlugin("io.spray" % "sbt-revolver" % "0.9.1")
