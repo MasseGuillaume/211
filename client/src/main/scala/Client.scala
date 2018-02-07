@@ -9,7 +9,12 @@ import org.scalajs.dom.raw.HTMLTextAreaElement
 object Client {
   @JSExport
   def main(): Unit = {
+    codemirror.CLike
     val node = dom.document.getElementById("mirror").asInstanceOf[HTMLTextAreaElement]
-    val editor = codemirror.CodeMirror.fromTextArea(node)
+    val options = js.Dictionary[Any](
+      "theme" -> "solarized dark",
+      "mode" -> "text/x-scala"
+    ).asInstanceOf[codemirror.Options]
+    val editor = codemirror.CodeMirror.fromTextArea(node, options)
   }
 }
