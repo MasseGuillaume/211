@@ -9,12 +9,11 @@ lazy val server = project
       "org.webjars" % "codemirror" % "5.33.0",
       "org.webjars" % "webjars-locator" % "0.32"
     ),
-    (managedClasspath in Runtime) += (packageBin in Assets).value,
     scalaJSProjects := Seq(client),
     pipelineStages in Assets := Seq(scalaJSPipeline),
     WebKeys.packagePrefix in Assets := "public/"
   )
-  .enablePlugins(SbtWeb, WebScalaJSBundlerPlugin, JavaServerAppPackaging)
+  .enablePlugins(WebScalaJSBundlerPlugin, JavaServerAppPackaging)
 
 lazy val client = project
   .settings(base)
@@ -25,4 +24,4 @@ lazy val client = project
     libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.3",
     npmDependencies in Compile += "codemirror" -> "5.23.0"
   )
-  .enablePlugins(ScalaJSPlugin, ScalaJSBundlerPlugin, ScalaJSWeb)
+  .enablePlugins(ScalaJSBundlerPlugin, ScalaJSWeb)
